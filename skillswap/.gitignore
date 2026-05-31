@@ -1,5 +1,5 @@
-node_modules
-client/node_modules
-server/node_modules
-build
+node_modules/
+skillswap/client/node_modules/
+skillswap/server/node_modules/
 .env
+build/
