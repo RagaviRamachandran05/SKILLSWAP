@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://skillswap-cd9o.onrender.com";
 
 const ChatRooms = ({ token }) => {
   const navigate = useNavigate();
@@ -51,7 +51,9 @@ const ChatRooms = ({ token }) => {
       return;
     }
 
-    ws.current = new WebSocket("ws://localhost:5000/ws");
+    const ws = new WebSocket(
+  `${process.env.REACT_APP_API_URL.replace("https", "wss")}/ws`
+);
 
     ws.current.onopen = () => {
       ws.current.send(

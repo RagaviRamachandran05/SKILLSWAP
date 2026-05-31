@@ -18,7 +18,7 @@ const Requests = ({ token }) => {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/requests/me', {
+      const res = await axios.get('https://skillswap-cd9o.onrender.com/api/requests/me', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSentRequests(res.data.sentRequests || []);
@@ -41,7 +41,7 @@ const Requests = ({ token }) => {
   // ✅ PERFECT Accept with Popup
   const handleAccept = async (requestId, fromUserName) => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/requests/${requestId}/status`, {
+      const res = await axios.put(`https://skillswap-cd9o.onrender.com/api/requests/${requestId}/status`, {
         status: 'accepted'
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -61,7 +61,7 @@ const Requests = ({ token }) => {
 
   const handleReject = async (requestId) => {
     try {
-      await axios.put(`http://localhost:5000/api/requests/${requestId}/status`, 
+      await axios.put(`https://skillswap-cd9o.onrender.com/api/requests/${requestId}/status`, 
         { status: 'rejected' }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -15,7 +15,7 @@ const SkillMatching = ({ token }) => {
       setLoading(true);
       try {
         const params = search ? `?search=${search}` : '';
-        const res = await axios.get(`http://localhost:5000/api/skills/public${params}`);
+        const res = await axios.get(`https://skillswap-cd9o.onrender.com/api/skills/public${params}`);
         setSkills(res.data);
       } catch (err) {
         console.error(err);
@@ -35,7 +35,7 @@ const requestSwap = async (skill) => {
   if (!window.confirm(`Request swap "${skill.title}" with ${skill.userId.name}?`)) return;
   
   try {
-    const mySkillsRes = await axios.get('http://localhost:5000/api/skills', {
+    const mySkillsRes = await axios.get('https://skillswap-cd9o.onrender.com/api/skills', {
       headers: { Authorization: `Bearer ${token}` }
     });
     
@@ -44,7 +44,7 @@ const requestSwap = async (skill) => {
       return;
     }
     
-    await axios.post('http://localhost:5000/api/requests', {
+    await axios.post('https://skillswap-cd9o.onrender.com/api/requests', {
       fromUserId: mySkillsRes.data[0].userId,
       toUserId: skill.userId,
       fromSkillId: mySkillsRes.data[0]._id,

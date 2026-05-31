@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import VideoCallModal from "./VideoCallModal";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://skillswap-cd9o.onrender.com";
 
 const LiveChat = ({ token }) => {
   const { chatId } = useParams();
@@ -208,7 +208,9 @@ const LiveChat = ({ token }) => {
         return;
       }
 
-      ws.current = new WebSocket("ws://localhost:5000/ws");
+      const ws = new WebSocket(
+  `${process.env.REACT_APP_API_URL.replace("https", "wss")}/ws`
+);
 
       ws.current.onopen = () => {
         setIsConnected(true);

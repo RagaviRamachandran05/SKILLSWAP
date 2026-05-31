@@ -21,7 +21,7 @@ const Dashboard = ({ token }) => {
     if (!headers) return;
 
     try {
-      const res = await axios.get('http://localhost:5000/api/requests/active-chats', {
+      const res = await axios.get('https://skillswap-cd9o.onrender.com/api/requests/active-chats', {
         headers
       });
       console.log('✅ Active chats loaded:', res.data.activeChats?.length || 0);
@@ -44,8 +44,8 @@ const Dashboard = ({ token }) => {
 
       try {
         const [skillsRes, userRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/skills', { headers }),
-          axios.get('http://localhost:5000/api/auth/me', { headers })
+          axios.get('https://skillswap-cd9o.onrender.com/api/skills', { headers }),
+          axios.get('https://skillswap-cd9o.onrender.com/api/auth/me', { headers })
         ]);
 
         setSkills(Array.isArray(skillsRes.data) ? skillsRes.data : []);
@@ -78,7 +78,7 @@ const Dashboard = ({ token }) => {
 
     const checkNewMessages = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/requests/active-chats', {
+        const res = await axios.get('https://skillswap-cd9o.onrender.com/api/requests/active-chats', {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -116,7 +116,7 @@ const Dashboard = ({ token }) => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/skills/${skill._id}`,
+        `https://skillswap-cd9o.onrender.com/api/skills/${skill._id}`,
         {
           title: newTitle,
           description: newDesc,
@@ -140,7 +140,7 @@ const Dashboard = ({ token }) => {
     if (!window.confirm('Delete this skill?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/skills/${skillId}`, {
+      await axios.delete(`https://skillswap-cd9o.onrender.com/api/skills/${skillId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

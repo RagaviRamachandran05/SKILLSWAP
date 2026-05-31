@@ -34,7 +34,7 @@ const Register = ({ setToken }) => {
         password: formData.password
       };
 
-      const res = await axios.post('http://localhost:5000/api/auth/register', payload);
+      const res = await axios.post('https://skillswap-cd9o.onrender.com/api/auth/register', payload);
 
       if (!res.data?.token) {
         throw new Error('Token not returned from register API');

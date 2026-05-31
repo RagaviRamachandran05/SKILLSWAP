@@ -21,7 +21,7 @@ useEffect(() => {
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/auth/profile/${userId}`, {
+      const res = await axios.get(`https://skillswap-cd9o.onrender.com/api/auth/profile/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProfile(res.data);
@@ -36,7 +36,7 @@ useEffect(() => {
 
   const checkOwnProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/me', {
+      const res = await axios.get('https://skillswap-cd9o.onrender.com/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsOwnProfile(res.data._id === userId);

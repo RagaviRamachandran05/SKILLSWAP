@@ -38,7 +38,7 @@ const SkillsForm = ({ setSkills, token }) => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/skills',
+        'https://skillswap-cd9o.onrender.com/api/skills',
         payload,
         {
           headers: { Authorization: `Bearer ${token}` }
