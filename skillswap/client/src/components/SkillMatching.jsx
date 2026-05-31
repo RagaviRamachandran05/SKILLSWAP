@@ -44,7 +44,7 @@ const requestSwap = async (skill) => {
       return;
     }
     
-    const response = await axios.post('http://localhost:5000/api/requests', {
+    await axios.post('http://localhost:5000/api/requests', {
       fromUserId: mySkillsRes.data[0].userId,
       toUserId: skill.userId,
       fromSkillId: mySkillsRes.data[0]._id,

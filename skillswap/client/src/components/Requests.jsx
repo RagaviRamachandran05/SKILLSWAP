@@ -5,7 +5,7 @@ import axios from 'axios';
 const Requests = ({ token }) => {
   const [sentRequests, setSentRequests] = useState([]);
   const [receivedRequests, setReceivedRequests] = useState([]);
-  const [totalRequests, setTotalRequests] = useState(0);
+  const [, setTotalRequests] = useState(0);
 
   const [loading, setLoading] = useState(true);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -14,7 +14,7 @@ const Requests = ({ token }) => {
 
   useEffect(() => {
     fetchRequests();
-  }, [refreshKey, token]);
+  }, [fetchRequests]);
 
   const fetchRequests = async () => {
     try {

@@ -15,7 +15,7 @@ const Profile = ({ token }) => {
 useEffect(() => {
   fetchProfile();
   checkOwnProfile();
-}, [userId, token]);  // 👈 FIXED dependencies
+}, [checkOwnProfile, fetchProfile]);  // 👈 FIXED dependencies
 
 
   const fetchProfile = async () => {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import SkillsForm from './SkillsForm';
 
 const Dashboard = ({ token }) => {
-  const [activeChats, setActiveChats] = useState([]);
+  const [, setActiveChats] = useState([]);
   const [skills, setSkills] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
