@@ -5,7 +5,6 @@ import axios from 'axios';
 const Requests = ({ token }) => {
   const [sentRequests, setSentRequests] = useState([]);
   const [receivedRequests, setReceivedRequests] = useState([]);
-  const [, setTotalRequests] = useState(0);
 
   const [loading, setLoading] = useState(true);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -14,7 +13,7 @@ const Requests = ({ token }) => {
 
   useEffect(() => {
     fetchRequests();
-  }, [fetchRequests]);
+  }, [refreshKey]);
 
   const fetchRequests = async () => {
     try {
@@ -33,10 +32,7 @@ const Requests = ({ token }) => {
     }
   };
 
-     useEffect(() => {
-  // ✅ CALCULATE after BOTH states update!
-  setTotalRequests(sentRequests.length + receivedRequests.length);
-}, [sentRequests, receivedRequests]);
+    
 
   // ✅ PERFECT Accept with Popup
   const handleAccept = async (requestId, fromUserName) => {
